@@ -1,0 +1,15 @@
+langchain
+langchain_openai
+langchain_core
+langchain_ollama
+python_dotenv
+streamlit
+langchain_community
+langserve
+uvicorn
+fastapi
+sse_starlette
+scrapy
+bs4
+pyPDF
+langchain-chroma
