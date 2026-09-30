@@ -16,7 +16,7 @@ load_dotenv()
 groq_api_key = os.getenv('GROQ_API_KEY')
 
 if "vector" not in st.session_state:
-    st.session_state.embeddings = OllamaEmbeddings()
+    st.session_state.embeddings = OllamaEmbeddings(model="nomic-embed-text")
     st.session_state.loader = WebBaseLoader("https://fhir.epic.com/Documentation?docId=oauth2")
     st.session_state.docs = st.session_state.loader.load()
     
