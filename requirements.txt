@@ -13,3 +13,6 @@ scrapy
 bs4
 pyPDF
 langchain-chroma
+langchain_groq
+langchain_text_splitters
+
