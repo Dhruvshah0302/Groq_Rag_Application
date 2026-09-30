@@ -8,6 +8,7 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 import time
 
 from dotenv import load_dotenv
@@ -16,7 +17,7 @@ load_dotenv()
 groq_api_key = os.getenv('GROQ_API_KEY')
 
 if "vector" not in st.session_state:
-    st.session_state.embeddings = OllamaEmbeddings(model="nomic-embed-text")
+    st.session_state.embeddings = HuggingFaceEmbeddings()
     st.session_state.loader = WebBaseLoader("https://fhir.epic.com/Documentation?docId=oauth2")
     st.session_state.docs = st.session_state.loader.load()
     
