@@ -3,7 +3,7 @@ import os
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_ollama.embeddings import OllamaEmbeddings
-from langchain_text_splitters import Recursive_text_splitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retriveal_Chain
@@ -20,7 +20,7 @@ if "vector" not in st.session_state:
     st.session_state.loader = WebBaseLoader("https://fhir.epic.com/Documentation?docId=oauth2")
     st.session_state.docs = st.session_state.loader.load()
     
-    st.session_state.text_splitter = Recursive_text_splitter(chunk_size = 1000, chunk_overlap = 200)
+    st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size = 1000, chunk_overlap = 200)
     st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs[:50])
     st.session_state.vectors = FAISS.from_documents(st.session_state.final_documents, st.session_state.embeddings)
     
