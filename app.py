@@ -6,7 +6,7 @@ from langchain_ollama.embeddings import OllamaEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains import create_retriveal_Chain
+from langchain_classic.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 import time
 
